@@ -31,6 +31,7 @@ class ViewController: UIViewController {
             case .cancelled:
                 print("User cancelled login.")
             case .success(let grantedPermissions, let declinedPermissions, let accessToken):
+                let tokenString = AccessToken.current?.authenticationToken
                 print("Logged in!")
                 let request = GraphRequest(graphPath: "me", parameters: ["fields":"id, name, first_name, last_name, email, picture.type(large)"], accessToken: AccessToken.current, httpMethod: .GET, apiVersion: FacebookCore.GraphAPIVersion.defaultVersion)
                 request.start { (response, result) in
