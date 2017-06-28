@@ -22,21 +22,43 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g3f-dl-Dib">
-                                <rect key="frame" x="157.5" y="318.5" width="60" height="30"/>
+                                <rect key="frame" x="137.5" y="318.5" width="100" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="9DN-xg-XOt"/>
-                                    <constraint firstAttribute="width" constant="60" id="olE-BZ-vhk"/>
+                                    <constraint firstAttribute="width" constant="100" id="olE-BZ-vhk"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="FB"/>
                                 <connections>
                                     <action selector="loginFacebook:" destination="BYZ-38-t0r" eventType="touchUpInside" id="P58-q4-Thc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gm8-GR-JxH">
+                                <rect key="frame" x="137" y="367" width="100" height="30"/>
+                                <state key="normal" title="Gmail"/>
+                                <connections>
+                                    <action selector="gmailAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1mH-S0-NlC"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VgB-E4-Czr">
+                                <rect key="frame" x="137" y="413" width="100" height="30"/>
+                                <state key="normal" title="Sign out Gmail"/>
+                                <connections>
+                                    <action selector="logoutGmail:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0sX-GA-d5R"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="VgB-E4-Czr" firstAttribute="centerX" secondItem="Gm8-GR-JxH" secondAttribute="centerX" id="JGm-x7-G8U"/>
                             <constraint firstItem="g3f-dl-Dib" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Nkx-OW-171"/>
+                            <constraint firstItem="Gm8-GR-JxH" firstAttribute="centerX" secondItem="g3f-dl-Dib" secondAttribute="centerX" id="Nxn-en-eif"/>
+                            <constraint firstItem="Gm8-GR-JxH" firstAttribute="top" secondItem="g3f-dl-Dib" secondAttribute="bottom" constant="18.5" id="UQx-jK-K7e"/>
                             <constraint firstItem="g3f-dl-Dib" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="UjM-ao-SPL"/>
+                            <constraint firstItem="VgB-E4-Czr" firstAttribute="height" secondItem="Gm8-GR-JxH" secondAttribute="height" id="bXe-Ic-qv3"/>
+                            <constraint firstItem="VgB-E4-Czr" firstAttribute="width" secondItem="Gm8-GR-JxH" secondAttribute="width" id="opd-il-SID"/>
+                            <constraint firstItem="Gm8-GR-JxH" firstAttribute="width" secondItem="g3f-dl-Dib" secondAttribute="width" id="wP2-yk-93a"/>
+                            <constraint firstItem="Gm8-GR-JxH" firstAttribute="height" secondItem="g3f-dl-Dib" secondAttribute="height" id="xAP-9z-zXf"/>
+                            <constraint firstItem="VgB-E4-Czr" firstAttribute="top" secondItem="Gm8-GR-JxH" secondAttribute="bottom" constant="16" id="ylM-zf-6wR"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="mIx-EX-XKl"/>
@@ -48,9 +70,10 @@
         <!--Navigation Controller-->
         <scene sceneID="PiE-UN-I88">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kp1-tx-enY" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="AfH-5D-YrD" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="jMN-ST-DU5">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="jMN-ST-DU5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -59,7 +82,6 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="M7D-KB-zdf"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kp1-tx-enY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-270" y="123"/>
         </scene>

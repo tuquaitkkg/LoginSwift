@@ -10,11 +10,12 @@ import UIKit
 import FacebookLogin
 import FacebookCore
 
-class ViewController: UIViewController {
+class ViewController: UIViewController,  GIDSignInUIDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        GIDSignIn.sharedInstance().uiDelegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -54,5 +55,26 @@ class ViewController: UIViewController {
         }
     }
 
+    @IBAction func gmailAction(_ sender: Any) {
+        GIDSignIn.sharedInstance().signIn()
+    }
+    
+    func sign(inWillDispatch signIn: GIDSignIn!, error: Error!) {
+        
+    }
+    
+    func sign(_ signIn: GIDSignIn!, present viewController: UIViewController!) {
+        self.present(viewController, animated: true, completion: nil)
+    }
+    
+    func sign(_ signIn: GIDSignIn!, dismiss viewController: UIViewController!) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    
+    @IBAction func logoutGmail(_ sender: Any) {
+        GIDSignIn.sharedInstance().signOut()
+        GIDSignIn.sharedInstance().disconnect()
+    }
 }
 

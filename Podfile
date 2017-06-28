@@ -9,6 +9,7 @@ target 'LoginSwift' do
   pod 'FacebookCore'
   pod 'FacebookLogin'
   pod 'FacebookShare', :git => 'https://github.com/1amageek/facebook-sdk-swift'
+  pod 'Google/SignIn'
 
   target 'LoginSwiftTests' do
     inherit! :search_paths
