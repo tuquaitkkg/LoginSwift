@@ -23,6 +23,10 @@ class ViewController: UIViewController {
     }
 
     @IBAction func loginFacebook(_ sender: Any) {
+        loginFacebook()
+    }
+    
+    func loginFacebook() -> Void {
         let loginManager = LoginManager()
         loginManager.logIn([ .publicProfile,.email ], viewController: self) { loginResult in
             switch loginResult {
@@ -31,17 +35,21 @@ class ViewController: UIViewController {
             case .cancelled:
                 print("User cancelled login.")
             case .success(let grantedPermissions, let declinedPermissions, let accessToken):
-                let tokenString = AccessToken.current?.authenticationToken
                 print("Logged in!")
-                let request = GraphRequest(graphPath: "me", parameters: ["fields":"id, name, first_name, last_name, email, picture.type(large)"], accessToken: AccessToken.current, httpMethod: .GET, apiVersion: FacebookCore.GraphAPIVersion.defaultVersion)
-                request.start { (response, result) in
-                    switch result {
-                    case .success(let value):
-                        print(value.dictionaryValue)
-                    case .failed(let error):
-                        print(error)
-                    }
-                }
+                self.getInfoOfUserFacebook()
+            }
+        }
+    }
+    
+    func getInfoOfUserFacebook() -> Void {
+        let tokenString = AccessToken.current?.authenticationToken
+        let request = GraphRequest(graphPath: "me", parameters: ["fields":"id, gender, name, first_name, last_name, email, picture.type(large)"], accessToken: AccessToken.current, httpMethod: .GET, apiVersion: FacebookCore.GraphAPIVersion.defaultVersion)
+        request.start { (response, result) in
+            switch result {
+            case .success(let value):
+                print(value.dictionaryValue)
+            case .failed(let error):
+                print(error)
             }
         }
     }
